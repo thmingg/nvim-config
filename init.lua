@@ -28,6 +28,7 @@ local init_common_plugins = function()
 		require("plugins.common.gitsigns"),
 		require("plugins.common.dap"),
 		require("plugins.common.alpha"),
+		require("plugins.common.indent_blankline"),
 	}
 end
 
