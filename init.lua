@@ -26,6 +26,7 @@ local init_common_plugins = function()
 		require("plugins.common.comment"),
 		require("plugins.common.none-ls"),
 		require("plugins.common.gitsigns"),
+		require("plugins.common.dap"),
 	}
 end
 
