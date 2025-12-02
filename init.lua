@@ -29,6 +29,7 @@ local init_common_plugins = function()
 		require("plugins.common.dap"),
 		require("plugins.common.alpha"),
 		require("plugins.common.indent_blankline"),
+		require("plugins.common.misc"),
 	}
 end
 
@@ -38,7 +39,14 @@ local init_go_plugins = function()
 	}
 end
 
+local init_dart_plugins = function()
+	return {
+		require("plugins.dart.flutter_tools"),
+	}
+end
+
 require("lazy").setup({
 	init_common_plugins(),
 	init_go_plugins(),
+	init_dart_plugins(),
 })

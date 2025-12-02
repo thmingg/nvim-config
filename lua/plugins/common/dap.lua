@@ -32,6 +32,12 @@ return {
 					args = { "dap", "-l", "127.0.0.1:${port}" },
 				},
 			}
+			dap.adapters.dart = {
+				type = "executable",
+				-- As of this writing, this functionality is open for review in https://github.com/flutter/flutter/pull/91802
+				command = "flutter",
+				args = { "debug_adapter" },
+			}
 
 			vim.cmd("hi DapBreakpointColor guifg=#fa4848")
 			vim.fn.sign_define(
@@ -39,8 +45,8 @@ return {
 				{ text = "", texthl = "DapBreakpointColor", linehl = "", numhl = "" }
 			)
 
-			vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
-			vim.keymap.set("n", "<space>gb", dap.run_to_cursor)
+			vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint)
+			vim.keymap.set("n", "<leader>gb", dap.run_to_cursor)
 
 			-- Eval var under cursor
 			vim.keymap.set("n", "<space>?", function()
