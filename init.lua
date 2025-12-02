@@ -12,16 +12,30 @@ end
 
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
+
+local init_common_plugins = function()
+	return {
+		require("plugins.common.colortheme"),
+		require("plugins.common.neotree"),
+		require("plugins.common.bufferline"),
+		require("plugins.common.lualine"),
+		require("plugins.common.treesitter"),
+		require("plugins.common.telescope"),
+		require("plugins.common.lsp"),
+		require("plugins.common.autocomplete"),
+		require("plugins.common.comment"),
+		require("plugins.common.none-ls"),
+		require("plugins.common.gitsigns"),
+	}
+end
+
+local init_go_plugins = function()
+	return {
+		require("plugins.go.gopher"),
+	}
+end
+
 require("lazy").setup({
-	require("plugins.colortheme"),
-	require("plugins.neotree"),
-	require("plugins.bufferline"),
-	require("plugins.lualine"),
-	require("plugins.treesitter"),
-	require("plugins.telescope"),
-	require("plugins.lsp"),
-	require("plugins.autocomplete"),
-	require("plugins.comment"),
-	require("plugins.none-ls"),
-	require("plugins.gitsigns"),
+	init_common_plugins(),
+	init_go_plugins(),
 })
